@@ -67,7 +67,7 @@ function Searchbox() {
   };
 
   const addjob = () => {
-    navigate("/addingjob");
+    navigate("/jobCreation");
   };
 
   useEffect(() => {

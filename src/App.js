@@ -16,17 +16,17 @@ function App() {
     <div>
       <ToastContainer position="bottom-center" />
       <Routes>
-        <Route path="/" element={<LoginPage />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/register" element={<RegisterPage />}></Route>
-        <Route path="/addingjob" element={<Addjob />}></Route>
-        <Route path="/home" element={<Homepage />}></Route>
+        <Route path="/jobCreation" element={<Addjob />}></Route>
+        <Route path="/" element={<Homepage />}></Route>
 
-        <Route path="/home/:id/">
-          <Route path="jobdescription" element={<Descriptionofjob />}></Route>
+        <Route path="/:id/">
+          <Route path="detailDescOfJob" element={<Descriptionofjob />}></Route>
           <Route path="edit" element={<Editjob />}></Route>
         </Route>
 
-        <Route path="/editjob/:id" element={<Updatejob/>}></Route>
+        <Route path="/editJob/:id" element={<Updatejob/>}></Route>
         <Route path="/*" element={<Error />}></Route>
       </Routes>
     </div>

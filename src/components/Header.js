@@ -9,7 +9,7 @@ function Header() {
   };
 
   const handleLogin = () => {
-    navigate("/");
+    navigate("/login");
   };
 
   return (

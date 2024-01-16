@@ -55,7 +55,7 @@ function Editjob() {
   }, [id]);
 
   const handleEditBtn = () => {
-    navigate(`/editjob/${id}`);
+    navigate(`/editJob/${id}`);
   };
 
   return (

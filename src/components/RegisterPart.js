@@ -10,7 +10,7 @@ function RegisterPart() {
   const navigate = useNavigate();
 
   function navigator() {
-    navigate("/");
+    navigate("/login");
   }
 
   const [formData, setFormData] = useState({

@@ -13,7 +13,7 @@ function Jobs({ job }) {
   const navigate = useNavigate();
 
   const handleViewDetails = () => {
-    navigate(`/home/${job._id}/jobdescription`);
+    navigate(`/home/${job._id}/detailDescOfJob`);
   };
 
   const handleEditJob = () => {

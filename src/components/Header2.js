@@ -6,7 +6,7 @@ function Header2() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div
