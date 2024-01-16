@@ -42,7 +42,7 @@ function Jobdetails() {
 
   const addjob = () => {
     axios
-      .post("http://localhost:4000/addjob", jobData, { headers })
+      .post("https://joblistingappbackend.onrender.com/addjob", jobData, { headers })
       .then((response) => {
         setError("");
         setJobData({

@@ -40,7 +40,7 @@ function Editjob() {
     const fetchJobData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/detaildesc/${id}`
+          `https://joblistingappbackend.onrender.com/detaildesc/${id}`
         );
         const { jobDetails } = response.data;
         setJobData(jobDetails);

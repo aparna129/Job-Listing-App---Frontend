@@ -41,7 +41,7 @@ function RegisterPart() {
     }
 
     axios
-      .post("http://localhost:4000/register", formData)
+      .post("https://joblistingappbackend.onrender.com/register", formData)
       .then((response) => {
         const {recruiterName} = response.data;
         localStorage.setItem("username", recruiterName);

@@ -29,7 +29,7 @@ function LoginPart() {
   const handleLogin = () => {
     console.log(loginData);
     axios
-      .post("http://localhost:4000/login", loginData)
+      .post("https://joblistingappbackend.onrender.com/login", loginData)
       .then((response) => {
         const { yourjwttoken } = response.data;
         localStorage.setItem("jwtToken", yourjwttoken);

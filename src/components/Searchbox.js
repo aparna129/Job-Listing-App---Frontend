@@ -74,7 +74,7 @@ function Searchbox() {
     if (skills.length > 0 || jobPosition) {
       const skillsString = skills.join(",");
       axios
-        .post("http://localhost:4000/filterjobs", {
+        .post("https://joblistingappbackend.onrender.com/filterjobs", {
           skills: skillsString,
           jobPosition,
         })

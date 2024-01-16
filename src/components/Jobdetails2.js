@@ -37,7 +37,7 @@ function Jobdetails({ id }) {
   const editjob = () => {
     console.log(jobData);
     axios
-      .patch(`http://localhost:4000/editjob/${id}`, jobData)
+      .patch(`https://joblistingappbackend.onrender.com/editjob/${id}`, jobData)
       .then((response) => {
         setError("");
         const { newJobDetails } = response.data;
