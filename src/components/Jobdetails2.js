@@ -7,19 +7,19 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Jobdetails({ id }) {
+function Jobdetails2({ id, existingJobData }) {
   const [jobData, setJobData] = useState({
-    companyName: "",
-    logoURL: "",
-    jobPosition: "",
-    monthlySalary: "",
-    jobType: "",
-    remoteOffice: "",
-    location: "",
-    jobDescription: "",
-    aboutCompany: "",
-    skillsRequired: "",
-    additionalInformation: "",
+    companyName: existingJobData.companyName,
+    logoURL: existingJobData.logoURL,
+    jobPosition: existingJobData.jobPosition,
+    monthlySalary: existingJobData.monthlySalary,
+    jobType: existingJobData.jobType,
+    remoteOffice: existingJobData.remoteOffice,
+    location: existingJobData.location,
+    jobDescription: existingJobData.jobDescription,
+    aboutCompany: existingJobData.aboutCompany,
+    skillsRequired: existingJobData.skillsRequired,
+    additionalInformation: existingJobData.additionalInformation,
   });
 
   const jobTypes = ["Full-time", "Part-time", "Intern"];
@@ -34,10 +34,21 @@ function Jobdetails({ id }) {
 
   const [error, setError] = useState("");
 
+  const token = localStorage.getItem("jwtToken");
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   const editjob = () => {
-    console.log(jobData);
+    const skillsArray = Array.isArray(jobData.skillsRequired)
+      ? jobData.skillsRequired
+      : jobData.skillsRequired.split(",").map((skill) => skill.trim());
+
+    const skillsString = skillsArray.join(",");
+    const updatedJobData = { ...jobData, skillsRequired: skillsString };
     axios
-      .patch(`https://joblistingappbackend.onrender.com/editjob/${id}`, jobData)
+      .patch(`https://joblistingappbackend.onrender.com/editjob/${id}`, updatedJobData, { headers })
       .then((response) => {
         setError("");
         const { newJobDetails } = response.data;
@@ -72,7 +83,7 @@ function Jobdetails({ id }) {
             fontWeight: "bold",
           }}
         >
-          Add job description
+          Update job description
         </p>
         <div style={{ display: "flex" }}>
           <div
@@ -221,4 +232,4 @@ function Jobdetails({ id }) {
   );
 }
 
-export default Jobdetails;
+export default Jobdetails2;

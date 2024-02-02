@@ -3,7 +3,7 @@ import Jobdetails2 from "./Jobdetails2";
 import Image2 from "./Image2";
 import { useParams } from "react-router-dom";
 
-function Updatejob() {
+function Updatejob({ existingJobData }) {
   const { id } = useParams();
 
   return (
@@ -17,7 +17,7 @@ function Updatejob() {
         }}
       >
         <div style={{ height: "100vh", width: "57vw", overflow: "auto" }}>
-          <Jobdetails2 id={id} />
+          <Jobdetails2 id={id} existingJobData={existingJobData} />
         </div>
 
         <div style={{ height: "100vh", width: "43vw" }}>

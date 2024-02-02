@@ -13,11 +13,11 @@ function Jobs({ job }) {
   const navigate = useNavigate();
 
   const handleViewDetails = () => {
-    navigate(`/home/${job._id}/detailDescOfJob`);
+    navigate(`/${job._id}/detailDescOfJob`);
   };
 
   const handleEditJob = () => {
-    navigate(`/home/${job._id}/edit`);
+    navigate(`/${job._id}/edit`);
   };
 
   useEffect(() => {
@@ -57,6 +57,7 @@ function Jobs({ job }) {
             width: "3.2vw",
             marginTop: "2.5vh",
             marginLeft: "2vw",
+            borderRadius: "12px",
           }}
           src={job.logoURL}
           alt="logo"
@@ -115,8 +116,8 @@ function Jobs({ job }) {
             fontSize: "14px",
           }}
         >
-          <span>{job.remoteOrOffice}</span>
-          <span style={{ marginLeft: "2.2vw" }}>{job.jobtype}</span>
+          <span>{job.remoteOffice}</span>
+          <span style={{ marginLeft: "2.2vw" }}>{job.jobType}</span>
         </p>
       </div>
 

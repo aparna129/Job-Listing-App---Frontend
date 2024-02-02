@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import stipendicon from "../images/stipendicon.png";
 import durationicon from "../images/durationicon.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import Header from "./Header";
 import Header2 from "./Header2";
+import Updatejob from "./Updatejob";
 
 function Editjob() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,8 +35,6 @@ function Editjob() {
   const [jobData, setJobData] = useState(null);
   const [text, setText] = useState("");
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     const fetchJobData = async () => {
       try {
@@ -54,9 +53,15 @@ function Editjob() {
     fetchJobData();
   }, [id]);
 
+  const [editBtnClicked, setIsEditBtnClicked] = useState(false);
+
   const handleEditBtn = () => {
-    navigate(`/editJob/${id}`);
+    setIsEditBtnClicked(true);
   };
+
+  if (editBtnClicked) {
+    return <Updatejob existingJobData={jobData} />;
+  }
 
   return (
     <div

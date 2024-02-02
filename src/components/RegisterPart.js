@@ -43,7 +43,7 @@ function RegisterPart() {
     axios
       .post("https://joblistingappbackend.onrender.com/register", formData)
       .then((response) => {
-        const {recruiterName} = response.data;
+        const { recruiterName } = response.data;
         localStorage.setItem("username", recruiterName);
         setError("");
         setFormData({
@@ -54,7 +54,7 @@ function RegisterPart() {
         });
         setBox(false);
         toast.success("User created successfully");
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         if (

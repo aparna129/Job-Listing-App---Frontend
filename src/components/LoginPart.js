@@ -41,7 +41,7 @@ function LoginPart() {
           password: "",
         });
         toast.success("Logged in successfully");
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         if (
